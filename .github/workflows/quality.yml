@@ -1,0 +1,18 @@
+﻿name: Quality
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  qa:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run QA script
+        shell: pwsh
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\tools\quality-check.ps1

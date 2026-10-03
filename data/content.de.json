@@ -1,0 +1,79 @@
+﻿{
+  "updated": "2026-02-28",
+  "visitorModes": [
+    { "id": "all", "label": "Alle" },
+    { "id": "family", "label": "Klasse" },
+    { "id": "quick", "label": "Kurzrunde" },
+    { "id": "rain", "label": "Drinnen anschauen" },
+    { "id": "evening", "label": "Lichter" }
+  ],
+  "places": {
+    "kirche": {
+      "name": "Stadtkirche St. Mauritius",
+      "cardSummary": "Schaut genau hin: Kirchturm, Fenster und Eingang erzählen viel über alte Baukunst.",
+      "search": "kirche stadtkirche st. mauritius turm fenster",
+      "tags": ["quick", "rain"],
+      "image": "kirche"
+    },
+    "rathaus": {
+      "name": "Historisches Rathaus",
+      "cardSummary": "Hier werden wichtige Dinge für die Stadt besprochen und entschieden.",
+      "search": "rathaus stadtverwaltung entscheidung ortskern",
+      "tags": ["quick", "rain"],
+      "image": "rathaus"
+    },
+    "teppichfabrik": {
+      "name": "Historische Teppichfabrik",
+      "cardSummary": "Ein Ort, an dem man sieht, wie Menschen früher gearbeitet und Teppiche hergestellt haben.",
+      "search": "teppichfabrik industrie geschichte arbeit",
+      "tags": ["quick", "rain"],
+      "image": "alte_teppichfabrik"
+    },
+    "wasserschloss": {
+      "name": "Burg Münch (Wasserschloss)",
+      "cardSummary": "Ein Ort für Spurensucher: Hier erinnert noch vieles an eine frühere Burg.",
+      "search": "wasserschloss burg münch wasserburg spurensuche",
+      "tags": ["quick", "evening"],
+      "image": "wasserschloss"
+    },
+    "seliger": {
+      "name": "Holzmarkt und Lichterpark Seliger",
+      "cardSummary": "Holzfiguren, Wege und Lichter machen diesen Ort besonders gut zum Beobachten.",
+      "search": "seliger holzmarkt lichterpark holzfiguren",
+      "tags": ["family", "evening"],
+      "image": "seliger"
+    }
+  },
+  "tour": {
+    "title": "Entdeckerkarte",
+    "intro": "Wählt eine Station aus und schaut, welche Orte ihr als Klasse entdecken könnt.",
+    "openMap": "In Google Maps öffnen",
+    "routeTitle": "Route mit Koordinaten",
+    "routeIntro": "Die Zeiten sind grobe Schätzungen für einen ruhigen Klassenspaziergang.",
+    "stopLabel": "Station",
+    "coordLabel": "Koordinaten",
+    "walkLabel": "Laufzeit",
+    "stayLabel": "Aufenthalt",
+    "totalLabel": "Gesamtzeit ohne Pausen",
+    "stops": [
+      { "id": "kirche", "coords": [50.81641, 11.93326], "stayMin": [20, 30], "mapQuery": "Stadtkirche St. Mauritius Münchenbernsdorf", "summary": "Hier könnt ihr Formen, Fenster und den Kirchturm vergleichen." },
+      { "id": "rathaus", "coords": [50.81586, 11.93406], "stayMin": [15, 25], "mapQuery": "Rathaus Münchenbernsdorf", "summary": "Achtet auf die Fassade und überlegt, wofür ein Rathaus da ist." },
+      { "id": "wasserschloss", "coords": [50.81530, 11.93529], "stayMin": [15, 20], "mapQuery": "Burg Münch Wasserschloss Münchenbernsdorf", "summary": "Sucht nach Hinweisen, die an die frühere Burg erinnern." },
+      { "id": "teppichfabrik", "coords": [50.81449, 11.93233], "stayMin": [20, 30], "mapQuery": "Historische Teppichfabrik Münchenbernsdorf", "summary": "Hier geht es um Arbeit, Maschinen und die Geschichte der Stadt." },
+      { "id": "seliger", "coords": [50.81391, 11.93635], "stayMin": [30, 45], "mapQuery": "Holzmarkt Lichterpark Seliger Münchenbernsdorf", "summary": "Zählt Holzfiguren oder beschreibt, welche Formen ihr entdeckt." }
+    ]
+  },
+  "feedback": {
+    "title": "Feedback & Kontakt",
+    "intro": "Schreibt kurz, was für eure Klasse noch hilfreich wäre.",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "messagePlaceholder": "Unsere Klasse wünscht sich...",
+    "challenge": "Sicherheitsfrage",
+    "submit": "Nachricht vorbereiten",
+    "success": "Danke! Dein E-Mail-Programm wurde vorbereitet.",
+    "spam": "Spam-Schutz aktiv: Bitte Formular erneut ausfüllen.",
+    "invalid": "Bitte alle Felder korrekt ausfüllen und Sicherheitsfrage lösen."
+  }
+}

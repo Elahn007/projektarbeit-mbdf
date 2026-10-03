@@ -1,0 +1,60 @@
+{
+  "name": "Münchenbernsdorf entdecken",
+  "short_name": "MBD Quiz",
+  "description": "Kindgerechte Website für Grundschüler über Münchenbernsdorf.",
+  "lang": "de-DE",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Kurzrunde",
+      "short_name": "Kurzrunde",
+      "description": "Schnelle Orte entdecken",
+      "url": "/?filter=quick",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Quiz spielen",
+      "short_name": "Quiz",
+      "description": "Wissen über Münchenbernsdorf testen",
+      "url": "/#quiz",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Entdeckerkarte",
+      "short_name": "Karte",
+      "description": "Alle Orte auf der Karte",
+      "url": "/#tour",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Indoor-Tour",
+      "short_name": "Drinnen",
+      "description": "Orte für regnerische Tage",
+      "url": "/?filter=rain",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Lichter-Tour",
+      "short_name": "Lichter",
+      "description": "Orte abends besuchen",
+      "url": "/?filter=evening",
+      "icons": [{ "src": "/images/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

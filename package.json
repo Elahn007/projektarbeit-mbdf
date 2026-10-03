@@ -1,0 +1,28 @@
+{
+  "name": "muenchenbernsdorf-website",
+  "version": "2.0.0",
+  "description": "Interactive discovery website for Münchenbernsdorf - kids & learning",
+  "author": "Emil Lahn",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "npm run qa-check",
+    "qa-check": "powershell -NoProfile -ExecutionPolicy Bypass -File ./qa-check.ps1",
+    "build": "npm run optimize-images && npm run validate",
+    "optimize-images": "powershell -NoProfile -ExecutionPolicy Bypass -File ./tools/optimize-images.ps1",
+    "validate": "npm run qa-check",
+    "serve": "npx http-server . -p 8080 -c-1",
+    "analyze": "npm run qa-check"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "keywords": [
+    "tourism",
+    "education",
+    "kids",
+    "pwa",
+    "interactive"
+  ]
+}
