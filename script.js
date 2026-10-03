@@ -86,7 +86,6 @@ if (!window.matchMedia) {
         theme: "darkMode",
         visited: "visitedPlaces",
         analytics: "mb_analytics_v1",
-        visitorFilter: "mb_visitor_filter",
         achievements: "mb_achievements_v1",
         quizDifficulty: "mb_quiz_difficulty",
         fontSize: "mb_font_size",
@@ -95,7 +94,6 @@ if (!window.matchMedia) {
 
     // === State ===
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let activeVisitorFilter = "all";
     let dynamicTourState = null;
     let currentLang = "de";
 
@@ -481,10 +479,8 @@ if (!window.matchMedia) {
 
         searchableCards.forEach((card) => {
             const text = (card.dataset.search || "").toLowerCase();
-            const tags = (card.dataset.tags || "").toLowerCase().split(/\s+/).filter(Boolean);
             const matchesSearch = text.includes(query);
-            const matchesFilter = activeVisitorFilter === "all" || tags.includes(activeVisitorFilter);
-            const visible = matchesSearch && matchesFilter;
+            const visible = matchesSearch;
 
             card.style.display = visible ? "block" : "none";
             if (visible) visibleCount += 1;
@@ -551,47 +547,6 @@ if (!window.matchMedia) {
 
         updateCardResults();
     };
-
-    const ensureVisitorFilterUI = (content) => {
-        if (!isHomePage) return;
-
-        const targetSection = doc.getElementById("attractions");
-        const cardsWrap = targetSection?.querySelector(".cards");
-        if (!cardsWrap) return;
-
-        let filterWrap = targetSection.querySelector(".visitor-filter");
-        if (!filterWrap) {
-            filterWrap = doc.createElement("div");
-            filterWrap.className = "visitor-filter";
-            cardsWrap.before(filterWrap);
-        }
-
-        const modes = content?.visitorModes || fallbackContent[currentLang].visitorModes;
-        const label = "Entdeckermodus:";
-
-        filterWrap.innerHTML = `
-            <p class="filter-label">${label}</p>
-            <div class="filter-buttons">
-                ${modes.map((mode) => `<button type="button" class="filter-chip${mode.id === activeVisitorFilter ? " active" : ""}" data-visitor-filter="${mode.id}" aria-pressed="${mode.id === activeVisitorFilter}">${mode.label}</button>`).join("")}
-            </div>
-        `;
-
-        filterWrap.querySelectorAll("[data-visitor-filter]").forEach((button) => {
-            button.addEventListener("click", () => {
-                activeVisitorFilter = button.dataset.visitorFilter || "all";
-                // Save filter selection to localStorage
-                try {
-                    localStorage.setItem(STORAGE.visitorFilter, activeVisitorFilter);
-                } catch {
-                    // Storage quota exceeded or private browsing
-                }
-                ensureVisitorFilterUI(content);
-                updateCardResults();
-                trackEvent("filter_select", { filter: activeVisitorFilter });
-            });
-        });
-    };
-
 
     // Entdeckerkarte-Tour komplett deaktiviert
     const ensureTourSection = (_content) => {
@@ -1170,7 +1125,6 @@ if (!window.matchMedia) {
                 }
 
                 if (searchInput) searchInput.value = "";
-                activeVisitorFilter = "all";
                 updateCardResults();
                 markPlace(nextId, true);
                 if (dynamicTourState) dynamicTourState.setActive(nextId, true);
@@ -1510,12 +1464,6 @@ if (!window.matchMedia) {
 
         // Load saved preferences
         applyTheme(localStorage.getItem(STORAGE.theme) === "on");
-        try {
-            activeVisitorFilter = localStorage.getItem(STORAGE.visitorFilter) || "all";
-        } catch {
-            activeVisitorFilter = "all";
-        }
-        
         applyLanguage("de", { persist: true });
 
         setupNavigation();
@@ -1541,7 +1489,6 @@ if (!window.matchMedia) {
 
         const content = await fetchContent("de");
         applyPlaceContent(content);
-        ensureVisitorFilterUI(content);
         ensureFeedbackSection(content);
         ensureDetailEnhancements(content);
 
